@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+
+    <item
+        android:id="@+id/cards"
+        android:title="Cards"
+        android:icon="@drawable/card_icon"/>
+
+    <item
+        android:title=""
+        android:enabled="true"
+        />
+
+    <item
+        android:id="@+id/rewards"
+        android:title="Rewards"
+        android:icon="@drawable/icon_rewards"/>
+
+    <item
+        android:id="@+id/setting"
+        android:title="Settings"
+        android:icon="@drawable/icon_settings"/>
+
+</menu>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "933352122616",
+    "project_id": "onebanc-1018a",
+    "storage_bucket": "onebanc-1018a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933352122616:android:9dcc9f117fa38a43c6730d",
+        "android_client_info": {
+          "package_name": "com.onebanc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt6cKlIcSEIkE1N8uz976TBZskOUxIwnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
