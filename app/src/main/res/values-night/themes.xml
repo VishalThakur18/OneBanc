@@ -1,11 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme -->
-    <style name="Base.Theme.OneBanc" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here -->
-        <item name="android:statusBarColor">@color/primary_color</item>
-        <!-- Always use dark icons, regardless of the theme -->
+    <style name="Base.Theme.OneBanc" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Set the status bar color to white -->
+        <item name="android:statusBarColor">@color/white</item>
+        <!-- Use dark icons in the status bar (true = dark icons) -->
         <item name="android:windowLightStatusBar">true</item>
+        <!-- Keep the navigation bar consistent if needed -->
+
     </style>
+
+    <!-- Your custom app theme -->
     <style name="Theme.OneBanc" parent="Base.Theme.OneBanc" />
 
     <!-- Splash Screen Theme -->

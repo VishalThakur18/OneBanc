@@ -75,6 +75,9 @@ dependencies {
     implementation (libs.androidx.biometric)
     //bottom navigation
     implementation (libs.material)
+    //QR Scanner Google ML
+    implementation(libs.google.scanner)
+    implementation(libs.play.services)
 
 
 

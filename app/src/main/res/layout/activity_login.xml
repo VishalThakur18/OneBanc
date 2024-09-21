@@ -134,7 +134,7 @@
 
         <ImageView
             android:id="@+id/finger_scan"
-            android:layout_width="40dp"
+            android:layout_width="39dp"
             android:layout_height="40dp"
             android:layout_marginStart="5dp"
             app:srcCompat="@drawable/fingerprint_icon" />

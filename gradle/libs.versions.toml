@@ -25,6 +25,8 @@ navigationFragmentKtx = "2.8.0"
 navigationUiKtx = "2.8.0"
 animationCoreAndroid = "1.7.1"
 picassoTransformations = "2.2.1"
+googleScanner = "16.1.0"
+playServices = "18.5.0"
 
 [libraries]
 androidx-biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
@@ -48,6 +50,8 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 androidx-animation-core-android = { group = "androidx.compose.animation", name = "animation-core-android", version.ref = "animationCoreAndroid" }
+google-scanner = { group = "com.google.android.gms", name = "play-services-code-scanner", version.ref = "googleScanner" }
+play-services = { group = "com.google.android.gms", name = "play-services-base", version.ref = "playServices" }
 material-v190 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 meow-bottom-navigation = { module = "com.etebarian:meow-bottom-navigation", version.ref = "meowBottomNavigation" }
 meow-bottom-navigation-v131 = { module = "com.etebarian:meow-bottom-navigation", version.ref = "meowBottomNavigationVersion" }
