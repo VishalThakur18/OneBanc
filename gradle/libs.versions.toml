@@ -1,8 +1,10 @@
 [versions]
 agp = "8.5.1"
 biometric = "1.1.0"
+compiler = "4.15.1"
 coreSplashscreen = "1.0.1"
 firebaseBom = "33.3.0"
+glide = "4.16.0"
 googleServices = "4.4.2"
 gradle = "8.2.2"
 kotlin = "1.9.0"
@@ -27,13 +29,17 @@ animationCoreAndroid = "1.7.1"
 picassoTransformations = "2.2.1"
 googleScanner = "16.1.0"
 playServices = "18.5.0"
+tbuonomoDotsindicator = "4.3"
 
 [libraries]
 androidx-biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+com-tbuonomo-dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "tbuonomoDotsindicator" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

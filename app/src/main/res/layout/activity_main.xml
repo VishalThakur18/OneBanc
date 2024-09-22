@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:pointerIcon="wait"
             android:src="@drawable/qr_scan_icon"
-            android:backgroundTint="@color/primary_color"
+            android:backgroundTint="#DB610F"
             app:layout_anchor="@id/bottomAppBar"
             app:maxImageSize="25dp"/>
 

@@ -13,7 +13,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
+        maven("https://www.jitpack.io")
     }
     // Add dependencies for classpath configurations
     dependencies {

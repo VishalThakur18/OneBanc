@@ -63,6 +63,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //Dot Indicator
+    implementation (libs.com.tbuonomo.dotsindicator)
+    //Glide
+    implementation (libs.glide)
+    annotationProcessor (libs.compiler)
+
     // To navigate between the fragments
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)

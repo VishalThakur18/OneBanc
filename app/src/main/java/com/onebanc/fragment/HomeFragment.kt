@@ -1,60 +1,154 @@
 package com.onebanc.fragment
 
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayoutMediator
 import com.onebanc.R
+import androidx.core.content.res.ResourcesCompat
+import com.onebanc.adapter.HomeViewPagerAdapter
+import com.onebanc.adapter.QuickSendAdapter
+import com.onebanc.databinding.FragmentHomeBinding
+import com.onebanc.model.QuickSender
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
-
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
 
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentHomeBinding? = null
+    private lateinit var viewPager: ViewPager2
+    private lateinit var viewPagerAdapter: HomeViewPagerAdapter
+    private lateinit var dotsIndicator: DotsIndicator
+    private lateinit var accountBlock: TextView
+    private lateinit var quickSendAdapter: QuickSendAdapter
+    private lateinit var cardsBlock: TextView
+    private lateinit var quickRecyclerView: RecyclerView
+    private lateinit var investmentBlock: TextView
+    private val manropeSemiBold = context?.let { ResourcesCompat.getFont(it, R.font.manropesemibold) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return _binding!!.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        // Initialize views from binding
+        viewPager = _binding!!.viewPagerHome
+        dotsIndicator = _binding!!.dotsIndicator
+        accountBlock = _binding!!.mainAccount
+        cardsBlock = _binding!!.cardsBlock
+        investmentBlock = _binding!!.investmentBlock
+        quickRecyclerView = _binding!!.homeQuickSendRecycler
+
+        // Set up ViewPager
+        viewPagerAdapter = HomeViewPagerAdapter(this)
+        viewPager.adapter = viewPagerAdapter
+
+        // Click listeners to switch ViewPager fragments and highlight the text
+        accountBlock.setOnClickListener {
+            viewPager.currentItem = 0
+            highlightSelectedText(0)
+        }
+
+        cardsBlock.setOnClickListener {
+            viewPager.currentItem = 1
+            highlightSelectedText(1)
+        }
+
+        investmentBlock.setOnClickListener {
+            viewPager.currentItem = 2
+            highlightSelectedText(2)
+        }
+
+        // ViewPager page change callback to update text highlight when swiping
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                highlightSelectedText(position)
             }
+        })
+        dotsIndicator.setViewPager2(viewPager)
+
+        // Initialize RecyclerView and its Adapter
+        quickRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        val quickSenders = listOf(
+            QuickSender("Sender 1", R.drawable.profile_avatar),
+            QuickSender("Sender 2", R.drawable.profile_avatar),
+            QuickSender("Sender 3", R.drawable.profile_avatar),
+            QuickSender("Sender 4", R.drawable.profile_avatar) ,
+            QuickSender("Sender 1", R.drawable.profile_avatar),
+            QuickSender("Sender 2", R.drawable.profile_avatar),
+            QuickSender("Sender 3", R.drawable.profile_avatar),
+            QuickSender("Sender 4", R.drawable.profile_avatar)
+        )
+
+        // Initialize the adapter with the list
+        quickSendAdapter = QuickSendAdapter(requireContext(), quickSenders)
+
+        // Set the adapter to the RecyclerView
+        quickRecyclerView.adapter = quickSendAdapter
+    }
+
+    // Reset the color of all blocks and highlight the selected one
+    private fun highlightSelectedText(position: Int) {
+        resetTextColors()
+
+// First reset all blocks to normal styling
+        accountBlock.setTextColor(Color.GRAY)  // Reset Account
+        accountBlock.setTextSize(14f)           // Reset text size
+        accountBlock.setTypeface(manropeSemiBold, Typeface.NORMAL)// Reset to normal
+
+        cardsBlock.setTextColor(Color.GRAY)    // Reset Cards
+        cardsBlock.setTextSize(14f)             // Reset text size
+        cardsBlock.setTypeface(manropeSemiBold, Typeface.NORMAL) // Reset to normal
+
+        investmentBlock.setTextColor(Color.GRAY) // Reset Investment
+        investmentBlock.setTextSize(14f)          // Reset text size
+        investmentBlock.setTypeface(manropeSemiBold, Typeface.NORMAL)  // Reset to normal
+
+// Apply the selected styling based on position
+        when (position) {
+            0 -> {
+                accountBlock.setTextColor(Color.BLACK)  // Highlight Account
+                accountBlock.setTextSize(18f)           // Set text size
+                accountBlock.setTypeface(manropeSemiBold, Typeface.BOLD)  // Make text bold
+            }
+            1 -> {
+                cardsBlock.setTextColor(Color.BLACK)    // Highlight Cards
+                cardsBlock.setTextSize(18f)             // Set text size
+                cardsBlock.setTypeface(manropeSemiBold, Typeface.BOLD)  // Make text bold
+            }
+            2 -> {
+                investmentBlock.setTextColor(Color.BLACK) // Highlight Investment
+                investmentBlock.setTextSize(18f)          // Set text size
+                investmentBlock.setTypeface(manropeSemiBold, Typeface.BOLD)  // Make text bold
+            }
+        }
+
+
+    }
+
+    // Reset the text color for all blocks to the default
+    private fun resetTextColors() {
+        accountBlock.setTextColor(Color.GRAY)  // Reset Account to gray
+        cardsBlock.setTextColor(Color.GRAY)    // Reset Cards to gray
+        investmentBlock.setTextColor(Color.GRAY) // Reset Investment to gray
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null // Prevent memory leaks
     }
 }
