@@ -1,9 +1,13 @@
 package com.onebanc.activities
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -21,7 +25,6 @@ import com.onebanc.R
 import com.onebanc.adapter.OnboardingItemsAdapter
 import com.onebanc.databinding.ActivityGetStartedBinding
 import com.onebanc.model.OnboardingItem
-
 
 class GetStarted : AppCompatActivity() {
 
@@ -74,30 +77,54 @@ class GetStarted : AppCompatActivity() {
         }
     }
 
+    // Function to create Spannable with two different colors for titles
+    private fun getColoredTitle(title: String, firstWordLength: Int, color1: Int, color2: Int): SpannableString {
+        val spannableTitle = SpannableString(title)
+
+        // Apply the first color
+        spannableTitle.setSpan(
+            ForegroundColorSpan(ContextCompat.getColor(this, color1)),
+            0,
+            firstWordLength,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        // Apply the second color
+        spannableTitle.setSpan(
+            ForegroundColorSpan(ContextCompat.getColor(this, color2)),
+            firstWordLength + 1,
+            title.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        return spannableTitle
+    }
+
     // Set the list of ViewPager2 in the onboarding flow
     private fun setOnboardingItems() {
         onboardingItemsAdapter = OnboardingItemsAdapter(
             listOf(
                 OnboardingItem(
-                    onboardingImage = R.drawable.community_gs,
-                    title = "Dependable Community",
-                    description = "Be a part of the conversation! Engage with the community by commenting on reviews and sharing your thoughts."
+                    onboardingImage = R.drawable.enhance_digitization,
+                    title = getColoredTitle("Enhanced Digitization", 8, R.color.primary_color_2, R.color.black),
+                    description = "Your digital account comes with all you need to spend, save and keep track of your money. Open your account digitally in minutes from our intuitive app."
                 ),
                 OnboardingItem(
-                    onboardingImage = R.drawable.authentic_gs_2,
-                    title = "Royal Reviews",
-                    description = "Explore the power of user opinions! Dive into a sea of reviews and ratings submitted by our vibrant community."
+                    onboardingImage = R.drawable.bottom_bar_personalized,
+                    title = getColoredTitle("Personalized Banking", 12, R.color.text_per, R.color.black),
+                    description = "By solving your problems, treating you fairly & being transparent, we can make banking better. Life becomes more fun when financial needs are smartly tuned to your lifestyle"
                 ),
                 OnboardingItem(
-                    onboardingImage = R.drawable.ratings_gs,
-                    title = "Profound Searches",
-                    description = "Find what you're looking for effortlessly. Our advanced search and filtering capabilities help you pinpoint reviews for specific products, categories, or topics."
+                    onboardingImage = R.drawable.bottom_bar_wellness,
+                    title = getColoredTitle("Financial Wellness", 9, R.color.text_well, R.color.black),
+                    description = "We believe only one person can have control over your financial life: You. Get a holistic view of all your finances in one place with AI enabled insights & recommendations."
                 ),
                 OnboardingItem(
-                    onboardingImage = R.drawable.discount_gs,
-                    title = "Hot Offers",
-                    description = "Unleash a world of exclusive offers tailored just for you. Enjoy access to special promotions, discounts, and limited-time deals."
+                    onboardingImage = R.drawable.maximum_security_caricature_v2,
+                    title = getColoredTitle("Maximum Security", 7, R.color.text_security, R.color.black),
+                    description = "We know security is your top priority and we will always place it first. We are trusted by the biggest banks regulated by RBI. We are GDPR, DPDP, SOC 2 Type II, ISO, PCI DSS v4.0 and Cert-In compliant."
                 )
+
             )
         )
         val onboardingViewPager = findViewById<ViewPager2>(R.id.onboardingViewPager)

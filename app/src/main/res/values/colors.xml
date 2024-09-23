@@ -5,8 +5,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="primary_color">#FBEEE5</color>
+    <color name="primary_color_2">#DB610F</color>
     <color name="primary_icon_color">#13B3E3</color>
-
+    <color name="text_per">#BB2C1A</color>
+    <color name="text_well">#084886</color>
+    <color name="text_security">#812E80</color>
     <color name="navigation_bar_background">#FFFFFF</color>
     <color name="navigation_icon_color">#000000</color>
         <!-- Other color definitions -->

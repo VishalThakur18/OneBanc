@@ -106,7 +106,7 @@ class LoginActivity : AppCompatActivity() {
         })
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Biometric login for OneBanc")
+            .setTitle("Please Verify Your Fingerprint")
             .setSubtitle("Log in using your biometric credential")
             .setNegativeButtonText("Cancel")
             .build()

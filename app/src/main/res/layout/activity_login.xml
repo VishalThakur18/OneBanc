@@ -30,6 +30,7 @@
           android:layout_height="match_parent"
           android:layout_gravity="center"
           android:layout_marginTop="10dp"
+          android:fontFamily="@font/manropesemibold"
           android:text="Sign In"
           android:textColor="@color/black"
           android:textSize="30sp" />
@@ -86,6 +87,7 @@
           android:layout_marginTop="10dp"
           android:clickable="true"
           android:focusable="true"
+          android:fontFamily="@font/manropesemibold"
           android:text="Forgot Password?"
           android:textAlignment="viewStart"
           android:textColor="#575656"
@@ -103,6 +105,7 @@
           android:background="@drawable/login_btn_main_bg"
           android:elevation="8dp"
           android:text="Sign In"
+          android:fontFamily="@font/manropesemibold"
           android:textAllCaps="false"
           android:textColor="@color/white"
           android:textSize="17sp" />
@@ -128,6 +131,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Or Sign in With"
+            android:fontFamily="@font/manropesemibold"
             android:textAlignment="center"
             android:textColor="#575656"
             android:textSize="15sp" />
@@ -148,6 +152,8 @@
           android:layout_marginTop="20dp"
           android:layout_marginBottom="10dp"
           android:clickable="true"
+          android:focusable="true"
+          android:fontFamily="@font/manropesemibold"
           android:text="Don't have an Account? Register"
           android:textAlignment="center"
           android:textColor="#575656"

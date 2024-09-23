@@ -56,9 +56,10 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/getstarted_button"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:text="GET STARTED"
         android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
