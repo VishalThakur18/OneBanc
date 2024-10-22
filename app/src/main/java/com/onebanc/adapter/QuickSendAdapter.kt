@@ -1,6 +1,5 @@
 package com.onebanc.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.onebanc.R
 import com.onebanc.model.QuickSender
 import com.bumptech.glide.Glide
-import com.onebanc.databinding.QuickSendRecyclerItemBinding
 
 class QuickSendAdapter(
-    private val context: Context,
     private val quickSenders: List<QuickSender>
 ) : RecyclerView.Adapter<QuickSendAdapter.QuickSendViewHolder>() {
 

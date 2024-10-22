@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayoutMediator
 import com.onebanc.R
 import androidx.core.content.res.ResourcesCompat
 import com.onebanc.adapter.HomeViewPagerAdapter
@@ -95,7 +94,7 @@ class HomeFragment : Fragment() {
         )
 
         // Initialize the adapter with the list
-        quickSendAdapter = QuickSendAdapter(requireContext(), quickSenders)
+        quickSendAdapter = QuickSendAdapter(quickSenders)
 
         // Set the adapter to the RecyclerView
         quickRecyclerView.adapter = quickSendAdapter
